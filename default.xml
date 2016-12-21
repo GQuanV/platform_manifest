@@ -7,62 +7,58 @@
            revision="refs/tags/android-6.0.1_r74" />
 
   <remote  name="github"
-                 fetch="https://github.com" />
+           fetch="https://github.com" />
  
-   <remote name="cm"
-                fetch="git://github.com/CyanogenMod"
-                revision="cm-13.0"
-                review="review.cyanogenmod.org" />
-
-  <remote  name="private"
-           fetch="ssh://git@github.com" />
+  <remote  name="cm"
+           fetch="git://github.com/CyanogenMod"
+           revision="cm-13.0"
+           review="review.cyanogenmod.org" />
 
   <remote  name="rr"
-	   fetch="https://github.com/ResurrectionRemix"
-	   revision="marshmallow" />
+	         fetch="https://github.com/ResurrectionRemix"
+	         revision="marshmallow" />
 
-  <remote name="rr-d"
-	  fetch="https://github.com/ResurrectionRemix-Devices"
-	  revision="marshmallow" />
-
-  <remote name="bucket"
-	  fetch="https://bitbucket.org"
-	  revision="master" />
+  <remote  name="gq"
+           fetch="https://github.com/GQuanV"
+           revision="marshmallow" />    
 
   <default revision="refs/heads/cm-13.0"
            remote="github"
            sync-c="true"
            sync-j="4"
-	   sync-f="true" />
+	         sync-f="true" />
 
-<!-- BEGIN RR -->
-  <project path="build" name="android_build" groups="pdk" remote="rr" >
+<!-- BEGIN GQ -->
+  <project path="build" name="android_build" groups="pdk" remote="gq" >
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
-  <project path="android" name="platform_manifest" remote="rr"/>
-  <project path="external/android-visualizer" name="android_external_android-visualizer" remote="rr"/>
+  <project path="android" name="platform_manifest" remote="gq"/>
+  <project path="external/android-visualizer" name="android_external_android-visualizer" remote="gq"/>
+  <project path="external/sepolicy" name="android_external_sepolicy" groups="pdk" remote="gq" />
+  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="gq" />
+  <project path="frameworks/base" name="android_frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="gq" />
+  <project path="packages/apps/CMFileManager" name="packages_apps_CMFileManager" remote="gq" />
+  <project path="packages/apps/InCallUI" name="android_packages_apps_InCallUI" remote="gq"  />
+  <project path="packages/apps/LockClock" name="android_packages_apps_LockClock" remote="gq" />
+  <project path="packages/apps/Messaging" name="android_packages_apps_Messaging" remote="gq" />
+  <project path="packages/apps/Settings" name="Resurrection_packages_apps_Settings" groups="pdk-fs" remote="gq"/>
+  <project path="packages/apps/SetupWizard" name="android_packages_apps_SetupWizard" remote="gq" />
+  <project path="packages/services/Telecomm" name="android_packages_services_Telecomm" remote="gq" />
+  <project path="packages/services/Telephony" name="android_packages_services_Telephony" remote="gq" />
+  <project path="system/core" name="system_core" groups="pdk" remote="gq" />
+  <project path="vendor/cm" name="android_vendor_resurrection" remote="gq" />
+  <project path="vendor/cmsdk" name="cm_platform_sdk" remote="gq" />
+  <project path="packages/services/ThemeManagerService" name="android_packages_services_ThemeManagerService" remote="gq" />
+  <project path="packages/apps/PackageInstaller" name="android_packages_apps_PackageInstaller" remote="gq" />
+<!-- END GQ -->  
+
+<!-- BEGIN RR -->
   <project path="external/DUtils" name="external_DUtils" remote="rr" />
-  <project path="external/sepolicy" name="android_external_sepolicy" groups="pdk" remote="rr" />
-  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="rr" />
-  <project path="frameworks/base" name="android_frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="rr" />
   <project path="frameworks/opt/cards" name="frameworks_opt_cards" remote="rr" />
   <project path="packages/apps/DUI" name="packages_apps_DUI" remote="rr" />
-  <project path="packages/apps/CMFileManager" name="packages_apps_CMFileManager" remote="rr" />
-  <project path="packages/apps/InCallUI" name="android_packages_apps_InCallUI" remote="rr"  />
-  <project path="packages/apps/LockClock" name="android_packages_apps_LockClock" remote="rr" />
-  <project path="packages/apps/Messaging" name="android_packages_apps_Messaging" remote="rr" />
   <project path="packages/apps/OmniSwitch" name="android_packages_apps_OmniSwitch" remote="rr" />
   <project path="packages/apps/ResurrectionOTA" name="packages_apps_ResurrectionOTA" remote="rr" />
-  <project path="packages/apps/ResurrectionStats" name="packages_apps_ResurrectionStats" remote="rr" />
-  <project path="packages/apps/Settings" name="Resurrection_packages_apps_Settings" groups="pdk-fs" remote="rr"/>
-  <project path="packages/apps/SetupWizard" name="android_packages_apps_SetupWizard" remote="rr" />
-  <project path="packages/services/Telecomm" name="android_packages_services_Telecomm" remote="rr" />
-  <project path="packages/services/Telephony" name="android_packages_services_Telephony" remote="rr" />
-  <project path="system/core" name="system_core" groups="pdk" remote="rr" />
-  <project path="vendor/cm" name="android_vendor_resurrection" remote="rr" />
-  <project path="vendor/cmsdk" name="cm_platform_sdk" remote="rr" />
-  <project path="packages/services/ThemeManagerService" name="android_packages_services_ThemeManagerService" remote="rr" />
-  <project path="packages/apps/PackageInstaller" name="android_packages_apps_PackageInstaller" remote="rr" />
+  <project path="packages/apps/ResurrectionStats" name="packages_apps_ResurrectionStats" remote="rr" />  
 <!-- END RR -->
 
 <!-- BEGIN CYANOGENMOD -->
@@ -549,3 +545,4 @@
 
 
 </manifest>
+
